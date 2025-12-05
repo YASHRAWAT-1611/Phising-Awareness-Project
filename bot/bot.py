@@ -9,8 +9,11 @@ from telegram.ext import (
     ContextTypes, filters
 )
 
+#API_BASE = os.getenv("API_BASE", "http://127.0.0.1:8000")
+#BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+
+BOT_TOKEN = "8530812133:AAGeTI3zk33cVhPnyve5Xve35x3ezZGHl8E"
 API_BASE = os.getenv("API_BASE", "http://127.0.0.1:8000")
-BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
@@ -96,7 +99,7 @@ async def analyze_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     await update.message.reply_markdown(reply)
 
-async def main():
+def main():
     if not BOT_TOKEN:
         raise RuntimeError("Set TELEGRAM_BOT_TOKEN env variable")
 
@@ -107,7 +110,8 @@ async def main():
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, analyze_message))
 
     logger.info("Bot starting...")
-    await app.run_polling()
+    # run_polling is a *sync* helper that handles the event loop internally
+    app.run_polling()
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    main()
