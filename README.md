@@ -52,13 +52,7 @@ Interact with the bot to learn about phishing and analyze text/links.
 The bot should respond with guidance or flag suspicious content.
 
 📄 Project Structure
-Phising-Awareness-Project/
-├── app/              # Main application logic
-├── bot/              # Chatbot implementation
-├── data/             # Support data for phishing detection
-├── train/            # Training scripts/datasets
-├── requirements.txt  # Dependencies
-└── README.md         # Project documentation
+![alt text](image.png)
 
 📌 Contributing
 
