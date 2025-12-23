@@ -52,6 +52,7 @@ Interact with the bot to learn about phishing and analyze text/links.
 The bot should respond with guidance or flag suspicious content.
 
 📄 Project Structure
+
 ![alt text](image.png)
 
 📌 Contributing
