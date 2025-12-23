@@ -42,7 +42,9 @@ Make sure your Python environment is active.
 
 Run the chatbot application:
 
-python app/main.py
+uvicorn app.main:app    #in new terminal
+
+python bot\bot.py   #in new terminal
 
 
 Interact with the bot to learn about phishing and analyze text/links.
