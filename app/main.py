@@ -26,7 +26,7 @@ def root():
 def analyze_text(req: TextAnalyzeRequest):
     ml_prob = text_model.predict_proba(req.text)  # probability scam
     rule_prob = text_rule_score(req.text)
-    combined = (ml_prob + rule_prob) / 2.0
+    combined = 0.7 * rule_prob + 0.3 * ml_prob
 
     reasons = []
     if ml_prob > 0.6:
@@ -55,7 +55,7 @@ def analyze_text(req: TextAnalyzeRequest):
 def analyze_url(req: UrlAnalyzeRequest):
     ml_prob = url_model.predict_proba(req.url)
     rule_prob = url_rule_score(req.url)
-    combined = (ml_prob + rule_prob) / 2.0
+    combined = 0.7 * rule_prob + 0.3 * ml_prob
 
     reasons = []
     if ml_prob > 0.6:
